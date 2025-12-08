@@ -79,16 +79,16 @@ export default function TechStack() {
               href="https://cp.certmetrics.com/amazon/en/public/verify/credential/aca41749fc4943e685d96008093882d0"
               target="_blank"
               rel="noopener noreferrer"
-              className="card-neo p-[72px] md:p-[96px] flex items-center justify-center aspect-square
+              className=" w-2/5 md:w-1/5 card-neo p-4 flex items-center justify-center aspect-square
                        hover:scale-105 hover:shadow-neo-light dark:hover:shadow-neo-dark
                        transition-all duration-300 group cursor-pointer"
             >
               <Image
                 src="/Assets/icons/aws.png"
                 alt="AWS Developer Associate Badge"
-                width={200}
-                height={200}
-                className="w-8/10 h-auto object-contain
+                width={800}
+                height={800}
+                className="w-full h-auto object-contain
                          group-hover:scale-110 transition-transform duration-300"
                 quality={100}
                 priority
