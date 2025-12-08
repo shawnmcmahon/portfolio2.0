@@ -20,15 +20,7 @@ const App = () => {
   const [pageMode, setPageMode] = useState(localStorage.getItem('pageMode') || 'Light Mode');
   const [pageDesign, setPageDesign] = useState(localStorage.getItem('pageDesign') || 'Flat')
 
-  // const handleModeSwitch = (event) => {
-  //   if (event.target.value === 'Light Mode') {
-  //     setPageMode('Dark Mode')
-  //     localStorage.setItem('pageMode', 'Dark Mode')
-  //   } else if (event.target.value === 'Dark Mode'){
-  //     setPageMode('Light Mode')
-  //     localStorage.setItem('pageMode', 'Light Mode')
-  //   }
-  // }
+
 
   const handleDesignSwitch = () => {
     if (pageDesign === 'Flat') {
