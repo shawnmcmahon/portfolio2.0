@@ -49,7 +49,7 @@ export default function TechStack() {
                 alt={`${tech.alt} logo`}
                 width={48}
                 height={48}
-                className={`w-10 h-10 md:w-12 md:h-12 object-contain
+                className={`w-4/5 h-auto object-contain
                            group-hover:scale-110 transition-transform duration-300
                            ${tech.darkInvert ? 'dark:invert dark:brightness-200' : ''}`}
               />
@@ -70,7 +70,7 @@ export default function TechStack() {
               alt="AWS Developer Associate Badge"
               width={48}
               height={48}
-              className="w-10 h-10 md:w-12 md:h-12 object-contain
+              className="w-4/5 h-auto object-contain
                        group-hover:scale-110 transition-transform duration-300"
             />
           </Link>
