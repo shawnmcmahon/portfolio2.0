@@ -68,10 +68,12 @@ export default function TechStack() {
             <Image
               src="/Assets/icons/aws.png"
               alt="AWS Developer Associate Badge"
-              width={48}
-              height={48}
+              width={120}
+              height={120}
               className="w-4/5 h-auto object-contain
                        group-hover:scale-110 transition-transform duration-300"
+              quality={100}
+              priority
             />
           </Link>
         </div>
