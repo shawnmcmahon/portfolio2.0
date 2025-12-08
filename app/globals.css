@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Prompt font */
+@font-face {
+  font-family: 'Prompt';
+  src: url('/Assets/fonts/Prompt/Prompt-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Prompt';
+  src: url('/Assets/fonts/Prompt/Prompt-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Prompt';
+  src: url('/Assets/fonts/Prompt/Prompt-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Prompt';
+  src: url('/Assets/fonts/Prompt/Prompt-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Prompt';
+  src: url('/Assets/fonts/Prompt/Prompt-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-prompt antialiased;
+    @apply bg-surface-light text-text-primary-light;
+    @apply dark:bg-surface-dark dark:text-text-primary-dark;
+    @apply transition-colors duration-300;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  ::selection {
+    @apply bg-accent-light/30 dark:bg-accent-dark/30;
+  }
+}
+
+@layer components {
+  /* Neomorphic button styles */
+  .btn-neo {
+    @apply px-6 py-3 rounded-xl font-medium transition-all duration-200;
+    @apply bg-surface-light shadow-neo-light-sm;
+    @apply hover:shadow-neo-light active:shadow-neo-light-pressed;
+    @apply dark:bg-surface-dark dark:shadow-neo-dark-sm;
+    @apply dark:hover:shadow-neo-dark dark:active:shadow-neo-dark-pressed;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-xl font-medium transition-all duration-200;
+    @apply bg-accent-light text-white shadow-lg;
+    @apply hover:bg-accent-hover-light hover:shadow-xl hover:-translate-y-0.5;
+    @apply dark:bg-accent-dark dark:text-surface-dark;
+    @apply dark:hover:bg-accent-hover-dark;
+    @apply active:translate-y-0 active:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-xl font-medium transition-all duration-200;
+    @apply bg-surface-light-elevated border-2 border-accent-light/20;
+    @apply hover:border-accent-light hover:bg-surface-light;
+    @apply dark:bg-surface-dark-elevated dark:border-accent-dark/20;
+    @apply dark:hover:border-accent-dark dark:hover:bg-surface-dark;
+  }
+
+  /* Neomorphic card styles */
+  .card-neo {
+    @apply rounded-2xl p-6 transition-all duration-300;
+    @apply bg-surface-light shadow-neo-light;
+    @apply dark:bg-surface-dark dark:shadow-neo-dark;
+  }
+
+  .card-neo-inset {
+    @apply rounded-2xl p-6 transition-all duration-300;
+    @apply bg-surface-light shadow-neo-light-inset;
+    @apply dark:bg-surface-dark dark:shadow-neo-dark-inset;
+  }
+
+  /* Section styles */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  /* Accent text */
+  .text-accent {
+    @apply text-accent-light dark:text-accent-dark;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
