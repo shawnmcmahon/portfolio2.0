@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="editorx-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667EEA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764BA2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#editorx-gradient)" d="M64 8C32 8 6 34 6 66s26 58 58 58 58-26 58-58S96 8 64 8zm0 104c-25.4 0-46-20.6-46-46S38.6 20 64 20s46 20.6 46 46-20.6 46-46 46z"/>
+  <text x="64" y="75" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#667EEA">Editor</text>
+  <text x="64" y="95" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="#764BA2">X</text>
+</svg>
