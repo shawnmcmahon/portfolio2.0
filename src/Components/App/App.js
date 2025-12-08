@@ -34,6 +34,7 @@ const App = () => {
     }
   }
 
+  
   const toggleTheme = () => {
     if (pageMode === 'Light Mode') {
       setPageMode('Dark Mode');
