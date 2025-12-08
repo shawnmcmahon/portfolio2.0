@@ -4,30 +4,30 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const technologies = [
-  { src: '/Assets/icons/react-original-wordmark.svg', alt: 'React' },
-  { src: '/Assets/icons/nextjs-original-wordmark.svg', alt: 'Next.js', darkInvert: true },
-  { src: '/Assets/icons/javascript-plain.svg', alt: 'JavaScript' },
-  { src: '/Assets/icons/typescript-plain.svg', alt: 'TypeScript' },
-  { src: '/Assets/icons/cypressio-original-wordmark.svg', alt: 'Cypress', darkInvert: true },
-  { src: '/Assets/icons/mocha-plain.svg', alt: 'Mocha' },
-  { src: '/Assets/icons/html5-plain.svg', alt: 'HTML5' },
-  { src: '/Assets/icons/css3-plain.svg', alt: 'CSS3' },
-  { src: '/Assets/icons/nodejs-original-wordmark.svg', alt: 'Node.js' },
-  { src: '/Assets/icons/express-original-wordmark.svg', alt: 'Express', darkInvert: true },
-  { src: '/Assets/icons/visualbasic-plain.svg', alt: 'Visual Basic' },
-  { src: '/Assets/icons/csharp-original.svg', alt: 'C#' },
-  { src: '/Assets/icons/dot-net-plain-wordmark.svg', alt: '.NET' },
-  { src: '/Assets/icons/microsoftsqlserver-plain-wordmark.svg', alt: 'MS SQL Server' },
-  { src: '/Assets/icons/postgresql-original-wordmark.svg', alt: 'PostgreSQL' },
-  { src: '/Assets/icons/supabase-original-wordmark.svg', alt: 'Supabase' },
-  { src: '/Assets/icons/firebase-original-wordmark.svg', alt: 'Firebase' },
-  { src: '/Assets/icons/netlify-original-wordmark.svg', alt: 'Netlify' },
-  { src: '/Assets/icons/heroku-original-wordmark.svg', alt: 'Heroku' },
-  { src: '/Assets/icons/cloudflare-original-wordmark.svg', alt: 'Cloudflare' },
-  { src: '/Assets/icons/wix-original-wordmark.svg', alt: 'Wix' },
-  { src: '/Assets/icons/editorx-original-wordmark.svg', alt: 'EditorX' },
-  { src: '/Assets/icons/vercel-original-wordmark.svg', alt: 'Vercel', darkInvert: true },
-  { src: '/Assets/icons/amazonwebservices-original-wordmark.svg', alt: 'AWS', darkInvert: true },
+  { src: '/Assets/icons/react-original-wordmark.svg', alt: 'React', url: 'https://react.dev' },
+  { src: '/Assets/icons/nextjs-original-wordmark.svg', alt: 'Next.js', darkInvert: true, url: 'https://nextjs.org' },
+  { src: '/Assets/icons/javascript-plain.svg', alt: 'JavaScript', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+  { src: '/Assets/icons/typescript-plain.svg', alt: 'TypeScript', url: 'https://www.typescriptlang.org' },
+  { src: '/Assets/icons/cypressio-original-wordmark.svg', alt: 'Cypress', darkInvert: true, url: 'https://www.cypress.io' },
+  { src: '/Assets/icons/mocha-plain.svg', alt: 'Mocha', url: 'https://mochajs.org' },
+  { src: '/Assets/icons/html5-plain.svg', alt: 'HTML5', url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
+  { src: '/Assets/icons/css3-plain.svg', alt: 'CSS3', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
+  { src: '/Assets/icons/nodejs-original-wordmark.svg', alt: 'Node.js', url: 'https://nodejs.org' },
+  { src: '/Assets/icons/express-original-wordmark.svg', alt: 'Express', darkInvert: true, url: 'https://expressjs.com' },
+  { src: '/Assets/icons/visualbasic-plain.svg', alt: 'Visual Basic', url: 'https://learn.microsoft.com/en-us/dotnet/visual-basic/' },
+  { src: '/Assets/icons/csharp-original.svg', alt: 'C#', url: 'https://learn.microsoft.com/en-us/dotnet/csharp/' },
+  { src: '/Assets/icons/dot-net-plain-wordmark.svg', alt: '.NET', url: 'https://dotnet.microsoft.com' },
+  { src: '/Assets/icons/microsoftsqlserver-plain-wordmark.svg', alt: 'MS SQL Server', url: 'https://www.microsoft.com/en-us/sql-server' },
+  { src: '/Assets/icons/postgresql-original-wordmark.svg', alt: 'PostgreSQL', url: 'https://www.postgresql.org' },
+  { src: '/Assets/icons/supabase-original-wordmark.svg', alt: 'Supabase', url: 'https://supabase.com' },
+  { src: '/Assets/icons/firebase-original-wordmark.svg', alt: 'Firebase', url: 'https://firebase.google.com' },
+  { src: '/Assets/icons/netlify-original-wordmark.svg', alt: 'Netlify', url: 'https://www.netlify.com' },
+  { src: '/Assets/icons/cloudflare-original-wordmark.svg', alt: 'Cloudflare', url: 'https://www.cloudflare.com' },
+  { src: '/Assets/icons/vercel-original-wordmark.svg', alt: 'Vercel', darkInvert: true, url: 'https://vercel.com' },
+  { src: '/Assets/icons/heroku-original-wordmark.svg', alt: 'Heroku', url: 'https://www.heroku.com' },
+  { src: '/Assets/icons/wix-original-wordmark.svg', alt: 'Wix', url: 'https://www.wix.com' },
+  { src: '/Assets/icons/cursor.svg', alt: 'Cursor IDE', url: 'https://cursor.sh' },
+  { src: '/Assets/icons/amazonwebservices-original-wordmark.svg', alt: 'AWS', darkInvert: true, url: 'https://aws.amazon.com' },
 ];
 
 export default function TechStack() {
@@ -47,11 +47,14 @@ export default function TechStack() {
         {/* Tech Grid */}
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-6 max-w-5xl mx-auto">
           {technologies.map((tech) => (
-            <div
+            <Link
               key={tech.alt}
+              href={tech.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="card-neo p-4 flex items-center justify-center aspect-square
                        hover:scale-105 hover:shadow-neo-light dark:hover:shadow-neo-dark
-                       transition-all duration-300 group"
+                       transition-all duration-300 group cursor-pointer"
             >
               <Image
                 src={tech.src}
@@ -62,7 +65,7 @@ export default function TechStack() {
                            group-hover:scale-110 transition-transform duration-300
                            ${tech.darkInvert ? 'dark:invert dark:brightness-200' : ''}`}
               />
-            </div>
+            </Link>
           ))}
         </div>
 
