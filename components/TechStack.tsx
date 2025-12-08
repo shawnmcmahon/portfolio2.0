@@ -14,10 +14,13 @@ const technologies = [
   { src: '/Assets/icons/css3-plain.svg', alt: 'CSS3' },
   { src: '/Assets/icons/nodejs-original-wordmark.svg', alt: 'Node.js' },
   { src: '/Assets/icons/express-original-wordmark.svg', alt: 'Express', darkInvert: true },
+  { src: '/Assets/icons/visualbasic-plain.svg', alt: 'Visual Basic' },
   { src: '/Assets/icons/csharp-original.svg', alt: 'C#' },
   { src: '/Assets/icons/dot-net-plain-wordmark.svg', alt: '.NET' },
   { src: '/Assets/icons/microsoftsqlserver-plain-wordmark.svg', alt: 'MS SQL Server' },
   { src: '/Assets/icons/postgresql-original-wordmark.svg', alt: 'PostgreSQL' },
+  { src: '/Assets/icons/supabase-original-wordmark.svg', alt: 'Supabase' },
+  { src: '/Assets/icons/firebase-original-wordmark.svg', alt: 'Firebase' },
   { src: '/Assets/icons/amazonwebservices-original-wordmark.svg', alt: 'AWS', darkInvert: true },
 ];
 
