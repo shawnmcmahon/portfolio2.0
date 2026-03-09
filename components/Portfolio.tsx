@@ -27,7 +27,7 @@ export default function Portfolio() {
             PROJECTS
           </h1>
           <p className="text-text-secondary-light dark:text-text-secondary-dark max-w-2xl mx-auto">
-            Selected freelance deliverables, personal builds, and school
+            A collection of freelance work, personal builds, and school
             projects.
           </p>
         </div>
