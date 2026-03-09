@@ -34,7 +34,7 @@ export const projects: Project[] = [
     shortTitle: 'Advanced Mastery',
     time: 'Client Delivery',
     dateCompleted: '03/2026',
-    applicationType: 'Frontend',
+    applicationType: 'Fullstack',
     collaborators: [],
     technologiesUsed: [
       'Wix Studio',
