@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Project } from '@/lib/projects';
@@ -11,6 +11,12 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const [selectedImage, setSelectedImage] = useState(0);
+  const hasGithubRepo = Boolean(project.githubRepo);
+  const hasDeployedSite = Boolean(project.deployedSite);
+
+  useEffect(() => {
+    setSelectedImage(0);
+  }, [project.id]);
 
   return (
     <article className="card-neo p-6 md:p-8 animate-fade-in">
@@ -22,26 +28,30 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           </h2>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap gap-3 mb-6">
-            <Link
-              href={project.githubRepo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-sm"
-            >
-              GitHub Repo
-            </Link>
-            {project.deployedSite && (
-              <Link
-                href={project.deployedSite}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-secondary text-sm"
-              >
-                Launch App
-              </Link>
-            )}
-          </div>
+          {(hasGithubRepo || hasDeployedSite) && (
+            <div className="flex flex-wrap gap-3 mb-6">
+              {hasGithubRepo && (
+                <Link
+                  href={project.githubRepo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary text-sm"
+                >
+                  GitHub Repo
+                </Link>
+              )}
+              {hasDeployedSite && (
+                <Link
+                  href={project.deployedSite}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={hasGithubRepo ? 'btn-secondary text-sm' : 'btn-primary text-sm'}
+                >
+                  Launch App
+                </Link>
+              )}
+            </div>
+          )}
 
           {/* Project Details */}
           <div className="space-y-4 text-sm">

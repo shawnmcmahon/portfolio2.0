@@ -1,5 +1,17 @@
+export type ProjectCategory =
+  | 'Freelance Deliverables'
+  | 'Personal Projects'
+  | 'School Projects';
+
+export const projectCategoryOrder: ProjectCategory[] = [
+  'Freelance Deliverables',
+  'Personal Projects',
+  'School Projects',
+];
+
 export interface Project {
   id: number;
+  category: ProjectCategory;
   title: string;
   shortTitle?: string;
   time: string;
@@ -17,6 +29,132 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
+    category: 'Freelance Deliverables',
+    title: 'Advanced Mastery Workbook',
+    shortTitle: 'Advanced Mastery',
+    time: 'Client Delivery',
+    dateCompleted: '03/2026',
+    applicationType: 'Frontend',
+    collaborators: [],
+    technologiesUsed: [
+      'Wix Studio',
+      'Responsive Design',
+      'Content Architecture',
+      'Custom Layouts',
+      'SEO',
+    ],
+    description:
+      'Advanced Mastery Workbook is a client-facing Wix Studio experience built for the C3 Method course platform. This freelance deliverable packages workbook content into a polished, guided learning flow with clear visual hierarchy, responsive layouts, and streamlined calls to action for course visitors.',
+    learningGoals: [
+      'Build a polished client deliverable inside the Wix Studio ecosystem.',
+      'Create a responsive content experience that keeps course material easy to navigate.',
+    ],
+    pictures: [
+      '/Assets/advanced-mastery-workbook/amw1.png',
+      '/Assets/advanced-mastery-workbook/amw2.png',
+      '/Assets/advanced-mastery-workbook/amw3.png',
+    ],
+    githubRepo: '',
+    deployedSite:
+      'https://witnesswebworksd.wixstudio.com/c3methodcourses/advancedmasteryworkbook',
+  },
+  {
+    id: 2,
+    category: 'Freelance Deliverables',
+    title: 'Pristine Management',
+    time: 'Client Delivery',
+    dateCompleted: '03/02/2026',
+    applicationType: 'Fullstack',
+    collaborators: [],
+    technologiesUsed: [
+      'Next.js',
+      'React',
+      'Tailwind CSS',
+      'React Hook Form',
+      'Resend',
+    ],
+    description:
+      'Pristine Management is a professional marketing site for a Colorado HOA and Metro District management company. Built in Next.js, the project focuses on clearly explaining the difference between traditional HOAs and Metro Districts while guiding homeowners, lenders, and board members to the right service, portal, and contact flows.',
+    learningGoals: [
+      'Translate a service business brief into a production-ready client website.',
+      'Build lead and support workflows with form validation and email delivery.',
+    ],
+    pictures: [
+      '/Assets/pristine-management/pm1.png',
+      '/Assets/pristine-management/pm2.png',
+      '/Assets/pristine-management/pm3.png',
+    ],
+    githubRepo: 'https://github.com/shawnmcmahon/pristine-management',
+    deployedSite: 'https://www.pristinemgmt.com/',
+  },
+  {
+    id: 3,
+    category: 'Personal Projects',
+    title: 'Link Shortening Service (SMLSS)',
+    shortTitle: 'SMLSS',
+    time: '6 hours / 1 day',
+    dateCompleted: '11/02/2025',
+    applicationType: 'Fullstack',
+    collaborators: [],
+    technologiesUsed: ['Next.js', 'TypeScript', 'Firebase', 'Tailwind CSS', 'Vercel'],
+    description:
+      'Link Shortening Service (SMLSS) is a modern, full-featured URL shortener built with Next.js, Firebase, and Tailwind CSS. This full-stack application enables users to create, manage, and track shortened links with comprehensive real-time analytics. Key features include custom alias creation, automatic short code generation, and click tracking with detailed analytics.',
+    learningGoals: [
+      'Build a production-ready full-stack application with Next.js and Firebase.',
+      'Implement real-time analytics and data tracking with Firestore.',
+    ],
+    pictures: ['/Assets/smlss/smlss-1.png', '/Assets/smlss/smlss-2.png', '/Assets/smlss/smlss-3.png'],
+    githubRepo: 'https://github.com/shawnmcmahon/link-shortening-service',
+    deployedSite: 'https://smlss.vercel.app',
+  },
+  {
+    id: 4,
+    category: 'Personal Projects',
+    title: 'Simpsons DLE',
+    time: 'Personal Build',
+    dateCompleted: '09/14/2025',
+    applicationType: 'Fullstack',
+    collaborators: [],
+    technologiesUsed: ['Next.js', 'Supabase', 'React', 'Tailwind CSS', 'Vercel'],
+    description:
+      'Simpsons DLE is a Simpsons-themed daily guessing game inspired by Wordle. Players identify a new character each day using color-coded hints like occupation, first episode, and hair color, while a practice mode offers unlimited random rounds with autocomplete input, guess history, and character reveals.',
+    learningGoals: [
+      'Design a replayable daily game loop with persistent character data.',
+      'Build a polished guessing experience backed by Supabase.',
+    ],
+    pictures: [
+      '/Assets/simpsons-dle/sd1.png',
+      '/Assets/simpsons-dle/sd2.png',
+    ],
+    githubRepo: 'https://github.com/shawnmcmahon/simpsons-dle',
+    deployedSite: 'https://simpsons-dle.vercel.app/',
+  },
+  {
+    id: 5,
+    category: 'Personal Projects',
+    title: 'Community Tier List',
+    time: 'Personal Build',
+    dateCompleted: '03/08/2026',
+    applicationType: 'Fullstack',
+    collaborators: [],
+    technologiesUsed: ['Next.js', 'Convex', 'Socket.IO', 'Auth.js', 'Twitch OAuth'],
+    description:
+      'Community Tier List is a real-time ranking platform built for Twitch communities. Hosts can create live sessions, stage items, and let viewers vote together across S, A, B, C, and D tiers while comparing streamer placements against the community board with live presence and board updates.',
+    learningGoals: [
+      'Coordinate real-time multiplayer interactions across web and socket services.',
+      'Build a live session workflow with authentication and persistent ranking data.',
+    ],
+    pictures: [
+      '/Assets/community-tier-list/ctl1.png',
+      '/Assets/community-tier-list/ctl2.png',
+      '/Assets/community-tier-list/ctl3.png',
+    ],
+    githubRepo: 'https://github.com/shawnmcmahon/community-tier-list',
+    deployedSite: 'https://community-tier-list-web.vercel.app/',
+  },
+  {
+    id: 6,
+    category: 'School Projects',
     title: 'Better Jeopardy',
     time: '60 Hours / 2 weeks',
     dateCompleted: '08/02/2021',
@@ -34,7 +172,8 @@ export const projects: Project[] = [
     deployedSite: 'https://better-jeopardy.netlify.app/',
   },
   {
-    id: 2,
+    id: 7,
+    category: 'School Projects',
     title: 'Rancid Tomatillos',
     time: '60 Hours / 2 weeks',
     dateCompleted: '07/26/2021',
@@ -52,7 +191,8 @@ export const projects: Project[] = [
     deployedSite: 'https://rancid-tomatillos-iota.vercel.app',
   },
   {
-    id: 3,
+    id: 8,
+    category: 'School Projects',
     title: 'CodeHerd',
     time: '60 Hours / 2 weeks',
     dateCompleted: '09/15/2021',
@@ -70,7 +210,8 @@ export const projects: Project[] = [
     deployedSite: '',
   },
   {
-    id: 4,
+    id: 9,
+    category: 'School Projects',
     title: "What's Cooking?",
     time: '60 Hours / 2 weeks',
     dateCompleted: '06/15/2021',
@@ -88,7 +229,8 @@ export const projects: Project[] = [
     deployedSite: '',
   },
   {
-    id: 5,
+    id: 10,
+    category: 'School Projects',
     title: 'Static Comp',
     time: '6 Hours / 1 day',
     dateCompleted: '05/30/2021',
@@ -106,7 +248,8 @@ export const projects: Project[] = [
     deployedSite: 'https://shawnmcmahon.github.io/static-comp-2/',
   },
   {
-    id: 6,
+    id: 11,
+    category: 'School Projects',
     title: 'Fit Lit',
     time: '30 Hours / 1 week',
     dateCompleted: '04/07/2021',
@@ -124,7 +267,8 @@ export const projects: Project[] = [
     deployedSite: 'https://fitlit-sm.netlify.app/',
   },
   {
-    id: 7,
+    id: 12,
+    category: 'School Projects',
     title: 'Tic Tac Toe',
     time: '30 Hours / 1 week',
     dateCompleted: '03/10/2021',
@@ -142,7 +286,8 @@ export const projects: Project[] = [
     deployedSite: 'https://shawnmcmahon.github.io/tic-tac-toe/',
   },
   {
-    id: 8,
+    id: 13,
+    category: 'School Projects',
     title: 'Self Care Center',
     time: '12 Hours / 3 Days',
     dateCompleted: '02/21/2021',
@@ -158,24 +303,5 @@ export const projects: Project[] = [
     pictures: ['/Assets/self-care-center/scc1.png', '/Assets/self-care-center/scc2.png', '/Assets/self-care-center/scc3.png'],
     githubRepo: 'https://github.com/shawnmcmahon/self-care-center',
     deployedSite: 'https://shawnmcmahon.github.io/self-care-center/',
-  },
-  {
-    id: 9,
-    title: 'Link Shortening Service (SMLSS)',
-    shortTitle: 'SMLSS',
-    time: '6 hours / 1 day',
-    dateCompleted: '11/02/2025',
-    applicationType: 'Fullstack',
-    collaborators: [],
-    technologiesUsed: ['Next.js', 'TypeScript', 'Firebase', 'Tailwind CSS', 'Vercel'],
-    description:
-      'Link Shortening Service (SMLSS) is a modern, full-featured URL shortener built with Next.js, Firebase, and Tailwind CSS. This full-stack application enables users to create, manage, and track shortened links with comprehensive real-time analytics. Key features include custom alias creation, automatic short code generation, and click tracking with detailed analytics.',
-    learningGoals: [
-      'Build a production-ready full-stack application with Next.js and Firebase.',
-      'Implement real-time analytics and data tracking with Firestore.',
-    ],
-    pictures: ['/Assets/smlss/smlss-1.png', '/Assets/smlss/smlss-2.png', '/Assets/smlss/smlss-3.png'],
-    githubRepo: 'https://github.com/shawnmcmahon/link-shortening-service',
-    deployedSite: 'https://smlss.vercel.app',
   },
 ];
