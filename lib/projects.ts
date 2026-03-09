@@ -33,7 +33,7 @@ export const projects: Project[] = [
     title: 'Advanced Mastery Workbook',
     shortTitle: 'Advanced Mastery',
     time: 'Client Delivery',
-    dateCompleted: '03/2026',
+    dateCompleted: '06/2023',
     applicationType: 'Fullstack',
     collaborators: [],
     technologiesUsed: [
