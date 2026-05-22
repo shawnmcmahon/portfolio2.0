@@ -19,6 +19,26 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, scrollY);
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { href: '/#about', label: 'About' },
     { href: '/portfolio', label: 'Portfolio' },
@@ -26,6 +46,7 @@ export default function Header() {
   ];
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
@@ -93,30 +114,30 @@ export default function Header() {
           </div>
         </div>
       </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 bg-surface-light dark:bg-surface-dark z-40 transition-all duration-300 md:hidden ${
-          mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}
-        style={{ top: '64px' }}
-      >
-        <nav className="flex flex-col items-center justify-center h-full gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-2xl font-semibold text-text-primary-light dark:text-text-primary-dark
-                       hover:text-accent-light dark:hover:text-accent-dark
-                       transition-colors duration-200"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-      </div>
     </header>
+
+    {/* Mobile Menu Overlay — rendered outside header so fixed positioning isn't affected by backdrop-blur */}
+    <div
+      className={`fixed top-16 left-0 right-0 bottom-0 z-40 bg-surface-light dark:bg-surface-dark transition-all duration-300 md:hidden ${
+        mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
+      }`}
+    >
+      <nav className="flex flex-col items-center justify-center h-full gap-8">
+        {navLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-2xl font-semibold text-text-primary-light dark:text-text-primary-dark
+                     hover:text-accent-light dark:hover:text-accent-dark
+                     transition-colors duration-200"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
+    </div>
+    </>
   );
 }
 

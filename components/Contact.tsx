@@ -59,7 +59,7 @@ export default function Contact() {
       <div className="relative z-10 min-h-screen flex items-center">
         <div className="section-container w-full">
           <div className="max-w-xl ml-auto animate-fade-in">
-            <div className="card-neo p-8 md:p-12">
+            <div className="card-neo p-8 md:p-12 bg-surface-light/25 dark:bg-surface-dark/25 backdrop-blur-md">
               <h1 className="text-3xl md:text-4xl font-bold mb-2 text-text-primary-light dark:text-text-primary-dark">
                 Contact
               </h1>

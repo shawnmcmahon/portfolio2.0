@@ -19,19 +19,23 @@ export default function Hero() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-surface-light/95 via-surface-light/80 to-surface-light/60 dark:from-surface-dark/95 dark:via-surface-dark/80 dark:to-surface-dark/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-surface-light/75 via-surface-light/55 to-surface-light/35 dark:from-surface-dark/75 dark:via-surface-dark/55 dark:to-surface-dark/35" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 section-container w-full">
         <div className="max-w-2xl animate-fade-in">
           {/* Name Card */}
-          <div className="card-neo mb-8 p-8 md:p-10">
+          <div className="card-neo mb-8 p-8 md:p-10 bg-surface-light/50 dark:bg-surface-dark/50 backdrop-blur-md">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-text-primary-light to-accent-light dark:from-text-primary-dark dark:to-accent-dark bg-clip-text text-transparent">
               Shawn McMahon
             </h1>
             <p className="text-xl md:text-2xl font-medium text-accent-light dark:text-accent-dark mb-6">
-              Software Engineer
+              Fullstack Software Engineer
+              <br />
+              <span className="text-base md:text-lg font-normal">
+                • C# / .NET / React / Next.JS •
+              </span>
             </p>
             <p className="text-text-secondary-light dark:text-text-secondary-dark text-lg mb-8">
               Building beautiful, engaging web experiences with modern technologies.
