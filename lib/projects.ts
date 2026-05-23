@@ -9,6 +9,12 @@ export const projectCategoryOrder: ProjectCategory[] = [
   'School Projects',
 ];
 
+export interface ProjectPictureGroup {
+  label: string;
+  pictures: string[];
+  pictureLabels?: string[];
+}
+
 export interface Project {
   id: number;
   category: ProjectCategory;
@@ -22,6 +28,7 @@ export interface Project {
   description: string;
   learningGoals: string[];
   pictures: string[];
+  pictureGroups?: ProjectPictureGroup[];
   githubRepo: string;
   deployedSite: string;
 }
@@ -170,15 +177,51 @@ export const projects: Project[] = [
       'Convex Auth',
     ],
     description:
-      'Chess Lobby is a multiplayer chess platform with real-time matches, in-game chat, and live lobby presence. Players sign in with Google or email, challenge online opponents, share invite links for guests, or play against a built-in engine, with moves validated server-side through Convex and chess.js.',
+      'Chess Lobby is a multiplayer chess platform with real-time matches, in-game chat, and live lobby presence. The UI ships four switchable themes—Ember Observatory, Atelier Grid, Pawn Riot, and Obsidian Atelier—each with its own landing and auth flows. Players sign in with Google or email, challenge opponents, share invite links, or play the built-in engine, with moves validated server-side through Convex and chess.js.',
     learningGoals: [
       'Ship a real-time multiplayer game loop on Convex with auth and presence.',
+      'Build a theme system with distinct art direction across landing and auth surfaces.',
       'Deploy a production demo with AWS static hosting and Convex Cloud backend.',
     ],
     pictures: [
-      '/Assets/chess-lobby/cl1.png',
-      '/Assets/chess-lobby/cl2.png',
-      '/Assets/chess-lobby/cl3.png',
+      '/Assets/chess-lobby/ember-landing.png',
+      '/Assets/chess-lobby/bento-landing.png',
+      '/Assets/chess-lobby/brutal-landing.png',
+      '/Assets/chess-lobby/atelier-landing.png',
+    ],
+    pictureGroups: [
+      {
+        label: 'Ember Observatory',
+        pictureLabels: ['Landing', 'Sign in'],
+        pictures: [
+          '/Assets/chess-lobby/ember-landing.png',
+          '/Assets/chess-lobby/ember-login.png',
+        ],
+      },
+      {
+        label: 'Atelier Grid',
+        pictureLabels: ['Landing', 'Sign in'],
+        pictures: [
+          '/Assets/chess-lobby/bento-landing.png',
+          '/Assets/chess-lobby/bento-login.png',
+        ],
+      },
+      {
+        label: 'Pawn Riot',
+        pictureLabels: ['Landing', 'Sign in'],
+        pictures: [
+          '/Assets/chess-lobby/brutal-landing.png',
+          '/Assets/chess-lobby/brutal-login.png',
+        ],
+      },
+      {
+        label: 'Obsidian Atelier',
+        pictureLabels: ['Landing', 'Sign in'],
+        pictures: [
+          '/Assets/chess-lobby/atelier-landing.png',
+          '/Assets/chess-lobby/atelier-login.png',
+        ],
+      },
     ],
     githubRepo: 'https://github.com/shawnmcmahon/chess-lobby',
     deployedSite: 'https://thechesslobby.com',
