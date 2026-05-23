@@ -153,6 +153,37 @@ export const projects: Project[] = [
     deployedSite: 'https://community-tier-list-web.vercel.app/',
   },
   {
+    id: 14,
+    category: 'Personal Projects',
+    title: 'Chess Lobby',
+    time: 'Personal Build',
+    dateCompleted: '05/23/2026',
+    applicationType: 'Fullstack',
+    collaborators: [],
+    technologiesUsed: [
+      'React',
+      'Vite',
+      'Convex',
+      'Tailwind CSS',
+      'AWS',
+      'chess.js',
+      'Convex Auth',
+    ],
+    description:
+      'Chess Lobby is a multiplayer chess platform with real-time matches, in-game chat, and live lobby presence. Players sign in with Google or email, challenge online opponents, share invite links for guests, or play against a built-in engine, with moves validated server-side through Convex and chess.js.',
+    learningGoals: [
+      'Ship a real-time multiplayer game loop on Convex with auth and presence.',
+      'Deploy a production demo with AWS static hosting and Convex Cloud backend.',
+    ],
+    pictures: [
+      '/Assets/chess-lobby/cl1.png',
+      '/Assets/chess-lobby/cl2.png',
+      '/Assets/chess-lobby/cl3.png',
+    ],
+    githubRepo: 'https://github.com/shawnmcmahon/chess-lobby',
+    deployedSite: 'https://thechesslobby.com',
+  },
+  {
     id: 6,
     category: 'School Projects',
     title: 'Better Jeopardy',
