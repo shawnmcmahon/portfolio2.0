@@ -177,10 +177,10 @@ export const projects: Project[] = [
       'Convex Auth',
     ],
     description:
-      'Chess Lobby is a multiplayer chess platform with real-time matches, in-game chat, and live lobby presence. The UI ships four switchable themes—Ember Observatory, Atelier Grid, Pawn Riot, and Obsidian Atelier—each with its own landing and auth flows. Players sign in with Google or email, challenge opponents, share invite links, or play the built-in engine, with moves validated server-side through Convex and chess.js.',
+      'Chess Lobby is a multiplayer chess platform with real-time matches, in-game chat, and live lobby presence. The UI ships four switchable themes—Ember Observatory, Atelier Grid, Pawn Riot, and Obsidian Atelier—each with distinct landing, auth, profile, and in-game surfaces. Players sign in with Google or email, challenge opponents, share invite links, or play the built-in engine, with moves validated server-side through Convex and chess.js.',
     learningGoals: [
       'Ship a real-time multiplayer game loop on Convex with auth and presence.',
-      'Build a theme system with distinct art direction across landing and auth surfaces.',
+      'Build a theme system with distinct art direction across landing, auth, profile, and game views.',
       'Deploy a production demo with AWS static hosting and Convex Cloud backend.',
     ],
     pictures: [
@@ -192,34 +192,50 @@ export const projects: Project[] = [
     pictureGroups: [
       {
         label: 'Ember Observatory',
-        pictureLabels: ['Landing', 'Sign in'],
+        pictureLabels: ['Landing', 'Features', 'Sign in', 'Sign up', 'Profile', 'Game board'],
         pictures: [
           '/Assets/chess-lobby/ember-landing.png',
+          '/Assets/chess-lobby/ember-features.png',
           '/Assets/chess-lobby/ember-login.png',
+          '/Assets/chess-lobby/ember-signup.png',
+          '/Assets/chess-lobby/ember-profile.png',
+          '/Assets/chess-lobby/ember-game.png',
         ],
       },
       {
         label: 'Atelier Grid',
-        pictureLabels: ['Landing', 'Sign in'],
+        pictureLabels: ['Landing', 'Features', 'Sign in', 'Sign up', 'Profile', 'Game board'],
         pictures: [
           '/Assets/chess-lobby/bento-landing.png',
+          '/Assets/chess-lobby/bento-features.png',
           '/Assets/chess-lobby/bento-login.png',
+          '/Assets/chess-lobby/bento-signup.png',
+          '/Assets/chess-lobby/bento-profile.png',
+          '/Assets/chess-lobby/bento-game.png',
         ],
       },
       {
         label: 'Pawn Riot',
-        pictureLabels: ['Landing', 'Sign in'],
+        pictureLabels: ['Landing', 'Features', 'Sign in', 'Sign up', 'Profile', 'Game board'],
         pictures: [
           '/Assets/chess-lobby/brutal-landing.png',
+          '/Assets/chess-lobby/brutal-features.png',
           '/Assets/chess-lobby/brutal-login.png',
+          '/Assets/chess-lobby/brutal-signup.png',
+          '/Assets/chess-lobby/brutal-profile.png',
+          '/Assets/chess-lobby/brutal-game.png',
         ],
       },
       {
         label: 'Obsidian Atelier',
-        pictureLabels: ['Landing', 'Sign in'],
+        pictureLabels: ['Landing', 'Features', 'Sign in', 'Sign up', 'Profile', 'Game board'],
         pictures: [
           '/Assets/chess-lobby/atelier-landing.png',
+          '/Assets/chess-lobby/atelier-features.png',
           '/Assets/chess-lobby/atelier-login.png',
+          '/Assets/chess-lobby/atelier-signup.png',
+          '/Assets/chess-lobby/atelier-profile.png',
+          '/Assets/chess-lobby/atelier-game.png',
         ],
       },
     ],
