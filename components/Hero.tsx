@@ -47,8 +47,8 @@ export default function Hero() {
                 View Portfolio
               </Link>
               <a
-                href="/ShawnMcMahon_SoftwareEngineer.pdf"
-                download="ShawnMcMahon_SoftwareEngineer.pdf"
+                href="/Shawn-McMahon-Software-Engineer-Resume-052026.pdf"
+                download="Shawn-McMahon-Software-Engineer-Resume-052026.pdf"
                 className="btn-secondary"
               >
                 Download Resume
