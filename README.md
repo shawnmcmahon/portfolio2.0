@@ -28,17 +28,20 @@ A modern, responsive portfolio website built with Next.js 15 and Tailwind CSS, f
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/shawnmcmahon/portfolio.git
 cd portfolio
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -101,3 +104,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - GitHub: [@shawnmcmahon](https://github.com/shawnmcmahon)
 - LinkedIn: [shawnpmcmahon](https://www.linkedin.com/in/shawnpmcmahon/)
 - Email: shawnmcmahondev@gmail.com
+
+## Enabling Pixel Perfect Programs
+
+The prepared entry in lib/projects.ts (id 16) is hidden with enabled: false. After the public site launches, set deployedSite to its final public HTTPS URL and change enabled to true. The project count, desktop collection, and mobile selector update automatically. Keep githubRepo empty unless the source becomes public.

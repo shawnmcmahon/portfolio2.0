@@ -1,4 +1,4 @@
-import Portfolio from '@/components/Portfolio';
+import Portfolio from '@/components/PortfolioWorkspace';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
