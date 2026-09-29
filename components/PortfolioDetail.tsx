@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState, type KeyboardEvent } from 'react';
 import Image from 'next/image';
 import type { Project } from '@/lib/projects';
 import styles from './PortfolioWorkspace.module.css';
@@ -9,6 +9,26 @@ export default function PortfolioDetail({ project }: { project: Project }) {
   const groups = project.pictureGroups?.length
     ? project.pictureGroups
     : [{ label: 'Screenshots', pictures: project.pictures }];
+  const [detailTab, setDetailTab] = useState('overview');
+  const detailTabs = useRef<(HTMLButtonElement | null)[]>([]);
+  const sections = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'build', label: 'Build notes' },
+  ];
+  function navigateDetails(
+    event: KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) {
+    let next = index;
+    if (event.key === 'ArrowRight' || event.key === 'ArrowLeft')
+      next = 1 - index;
+    else if (event.key === 'Home') next = 0;
+    else if (event.key === 'End') next = 1;
+    else return;
+    event.preventDefault();
+    setDetailTab(sections[next].id);
+    detailTabs.current[next]?.focus({ preventScroll: true });
+  }
   const [groupIndex, setGroupIndex] = useState(0);
   const [pageIndex, setPageIndex] = useState(0);
   const group = groups[groupIndex] ?? groups[0];
@@ -142,48 +162,87 @@ export default function PortfolioDetail({ project }: { project: Project }) {
         </section>
         <section
           className={styles.projectInfo}
-          tabIndex={0}
           aria-label={`${project.title} details`}
         >
-          <dl className={styles.metadata}>
-            <div>
-              <dt>Completed</dt>
-              <dd>{project.dateCompleted}</dd>
-            </div>
-            <div>
-              <dt>Project scope</dt>
-              <dd>{project.time}</dd>
-            </div>
-          </dl>
+          <div
+            className={styles.detailTabs}
+            role="tablist"
+            aria-label="Project details"
+          >
+            {sections.map((section, index) => (
+              <button
+                key={section.id}
+                type="button"
+                role="tab"
+                id={`detail-tab-${section.id}`}
+                aria-controls={`detail-${section.id}`}
+                aria-selected={detailTab === section.id}
+                tabIndex={detailTab === section.id ? 0 : -1}
+                ref={(el) => {
+                  detailTabs.current[index] = el;
+                }}
+                onClick={() => setDetailTab(section.id)}
+                onKeyDown={(event) => navigateDetails(event, index)}
+              >
+                {section.label}
+              </button>
+            ))}
+          </div>
+          <div
+            id="detail-overview"
+            role="tabpanel"
+            aria-labelledby="detail-tab-overview"
+            tabIndex={0}
+            hidden={detailTab !== 'overview'}
+          >
+            <dl className={styles.metadata}>
+              <div>
+                <dt>Completed</dt>
+                <dd>{project.dateCompleted}</dd>
+              </div>
+              <div>
+                <dt>Project scope</dt>
+                <dd>{project.time}</dd>
+              </div>
+            </dl>
 
-          <div className={styles.infoBlock}>
-            <h3>About the project</h3>
-            <p>{project.description}</p>
-          </div>
-          <div className={styles.infoBlock}>
-            <h3>Built with</h3>
-            <ul className={styles.technologies}>
-              {project.technologiesUsed.map((tech) => (
-                <li key={tech}>{tech}</li>
-              ))}
-            </ul>
-          </div>
-          {project.learningGoals.length > 0 && (
             <div className={styles.infoBlock}>
-              <h3>Focus & learning</h3>
-              <ul className={styles.learningGoals}>
-                {project.learningGoals.map((goal) => (
-                  <li key={goal}>{goal}</li>
+              <h3>About the project</h3>
+              <p>{project.description}</p>
+            </div>
+          </div>
+          <div
+            id="detail-build"
+            role="tabpanel"
+            aria-labelledby="detail-tab-build"
+            tabIndex={0}
+            hidden={detailTab !== 'build'}
+          >
+            <div className={styles.infoBlock}>
+              <h3>Built with</h3>
+              <ul className={styles.technologies}>
+                {project.technologiesUsed.map((tech) => (
+                  <li key={tech}>{tech}</li>
                 ))}
               </ul>
             </div>
-          )}
-          {project.collaborators.length > 0 && (
-            <div className={styles.infoBlock}>
-              <h3>Collaborators</h3>
-              <p>{project.collaborators.join(', ')}</p>
-            </div>
-          )}
+            {project.learningGoals.length > 0 && (
+              <div className={styles.infoBlock}>
+                <h3>Focus & learning</h3>
+                <ul className={styles.learningGoals}>
+                  {project.learningGoals.map((goal) => (
+                    <li key={goal}>{goal}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {project.collaborators.length > 0 && (
+              <div className={styles.infoBlock}>
+                <h3>Collaborators</h3>
+                <p>{project.collaborators.join(', ')}</p>
+              </div>
+            )}
+          </div>
         </section>
       </div>
     </article>

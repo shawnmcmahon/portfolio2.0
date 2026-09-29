@@ -107,4 +107,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Enabling Pixel Perfect Programs
 
-The prepared entry in lib/projects.ts (id 16) is hidden with enabled: false. After the public site launches, set deployedSite to its final public HTTPS URL and change enabled to true. The project count, desktop collection, and mobile selector update automatically. Keep githubRepo empty unless the source becomes public.
+The prepared entry in lib/projects.ts (id 16) is hidden with enabled: false. After the public site launches, set deployedSite to its final public HTTPS URL and change enabled to true. The desktop collection and mobile selector update automatically, revealing the dedicated My Business group. Empty groups remain hidden. Keep githubRepo empty unless the source becomes public.
