@@ -13,7 +13,7 @@ export default function Portfolio() {
   const groupedProjects = projectCategoryOrder.map((category) => ({
     category,
     projects: projects.filter((project) => project.category === category),
-  }));
+  })).filter(group => group.projects.length > 0);
 
   return (
     <section

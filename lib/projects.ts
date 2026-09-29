@@ -1,10 +1,12 @@
 export type ProjectCategory =
   | 'Freelance Deliverables'
+  | 'My Business'
   | 'Personal Projects'
   | 'School Projects';
 
 export const projectCategoryOrder: ProjectCategory[] = [
   'Freelance Deliverables',
+  'My Business',
   'Personal Projects',
   'School Projects',
 ];
@@ -136,7 +138,7 @@ const allProjects: Project[] = [
   {
     id: 16,
     enabled: false, // Enable after public launch and set deployedSite below.
-    category: "Personal Projects",
+    category: "My Business",
     title: "Pixel Perfect Programs",
     shortTitle: "Pixel Perfect",
     time: "Independent Build",
@@ -154,7 +156,7 @@ const allProjects: Project[] = [
       "Amazon SES",
     ],
     description:
-      "Pixel Perfect Programs is my freelance web and software development business website. The responsive experience introduces services, showcases selected projects, and connects visitors directly with me through a project enquiry form. A statically exported Next.js frontend is paired with an isolated AWS contact service that validates submissions, applies rate limits, and sends enquiries through Amazon SES.",
+      "Pixel Perfect Programs is Shawn McMahon's own web and software development business website. The responsive experience introduces services, showcases selected projects, and connects visitors directly with me through a project enquiry form. A statically exported Next.js frontend is paired with an isolated AWS contact service that validates submissions, applies rate limits, and sends enquiries through Amazon SES.",
     learningGoals: [
       "Translate a software development business into a clear service offering and focused project showcase.",
       "Connect a static frontend to a validated, rate-limited contact API with a fixed email recipient.",

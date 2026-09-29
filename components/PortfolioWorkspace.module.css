@@ -20,7 +20,7 @@
   flex-direction: column;
   gap: 16px;
   color: var(--ink);
-  overflow: hidden;
+  overflow: visible;
 }
 :global(.dark) .workspace {
   --panel: theme("colors.surface.dark");
@@ -60,32 +60,12 @@
   align-items: center;
   gap: 16px;
 }
-.topbar h1 span {
-  font-size: 0.75rem;
-  letter-spacing: 0;
-  font-weight: 400;
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  padding: 5px 10px;
-  color: var(--muted);
-}
-.topbar p {
-  color: var(--muted);
-  font-size: 0.875rem;
-  margin-top: 5px;
-}
-.contactLink {
-  font-size: 0.875rem;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-  color: var(--accent);
-}
 .panels {
   display: grid;
   grid-template-columns: 310px minmax(0, 1fr);
   gap: 20px;
   flex: 1;
-  min-height: 0;
+  min-height: min-content;
 }
 .selector {
   background: var(--panel);
@@ -138,12 +118,13 @@
   gap: 5px;
   min-height: 40px;
   padding: 8px 9px;
-  border: 1px solid var(--line);
+  border: 1px solid transparent;
   border-radius: 12px;
   background: var(--panel);
   box-shadow: var(--shadow-sm);
   text-align: left;
   font-size: 0.875rem;
+  font-weight: 500;
   line-height: 1.2;
   color: var(--ink);
   transition:
@@ -155,22 +136,19 @@
   box-shadow: var(--shadow);
 }
 .projectButtons button[aria-selected="true"] {
-  border-color: var(--accent);
   box-shadow: var(--pressed);
   color: var(--accent);
   font-weight: 500;
 }
+.projectButtons button > span:first-child {
+  padding-right: 10px;
+}
 .selectedMark {
+  position: absolute;
+  right: 8px;
   font-size: 0.5rem;
   color: var(--accent);
   flex-shrink: 0;
-}
-.keyboardHint {
-  font-size: 0.6875rem;
-  line-height: 1.4;
-  color: var(--muted);
-  margin-top: auto;
-  padding-top: 14px;
 }
 .detailPanel {
   background: var(--panel);
@@ -178,7 +156,7 @@
   border-radius: 16px;
   min-width: 0;
   min-height: 0;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: var(--shadow);
 }
 .detail {
@@ -238,7 +216,7 @@
 }
 .detailBody {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(270px, 0.8fr);
+  grid-template-columns: minmax(0, 0.85fr) minmax(340px, 1.15fr);
   flex: 1;
   min-height: 0;
 }
@@ -292,7 +270,11 @@
   padding-bottom: 10px;
 }
 .imageStage {
-  flex: 1;
+  /* Keep the preview proportional instead of filling a tall viewport. */
+  flex: 0 1 auto;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 420px;
   position: relative;
   min-height: 80px;
   background: var(--canvas);
@@ -336,18 +318,37 @@
   box-shadow: var(--shadow);
 }
 .projectInfo {
-  overflow: auto;
-  min-height: 0;
-  padding: 20px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--line) transparent;
-  overscroll-behavior: contain;
+  align-self: stretch;
+  margin: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: var(--inset);
+}
+.detailTabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.detailTabs button {
+  padding: 8px 14px;
+  min-height: 38px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.detailTabs button[aria-selected="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: var(--pressed);
 }
 .metadata {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 .metadata dt {
   font-size: 0.6875rem;
@@ -359,7 +360,7 @@
   line-height: 1.4;
 }
 .infoBlock + .infoBlock {
-  margin-top: 24px;
+  margin-top: 16px;
 }
 .infoBlock h3 {
   font-size: 0.75rem;
@@ -370,7 +371,7 @@
 .infoBlock p,
 .learningGoals {
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.5;
   color: var(--muted);
 }
 .technologies {
@@ -392,23 +393,11 @@
 .learningGoals li + li {
   margin-top: 9px;
 }
-.workspaceFooter {
-  font-size: 0.6875rem;
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-  flex-shrink: 0;
-  line-height: 1;
-}
-.workspaceFooter a {
-  color: var(--accent);
-}
 .mobileSelector {
   display: none;
 }
 
 /* Raised controls and recessed reading surfaces match the home/About sections. */
-.topbar h1 span,
 .actions a,
 .galleryFooter button,
 .technologies li {
@@ -416,19 +405,13 @@
   box-shadow: var(--shadow-sm);
 }
 .galleryToolbar select,
-.mobileSelector select,
-.metadata,
-.infoBlock {
+.mobileSelector select {
   background: var(--panel);
   box-shadow: var(--inset);
 }
-.metadata,
-.infoBlock {
-  border-radius: 16px;
-  padding: 16px;
-}
+
 .technologies {
-  gap: 10px;
+  gap: 8px;
 }
 .technologies li {
   border: 0;
@@ -446,6 +429,13 @@
   box-shadow: var(--pressed);
 }
 
+/* Bound the overall desktop workspace as well as the image frame. */
+@media (min-width: 1200px) and (min-height: 900px) {
+  .workspace {
+    height: 900px;
+  }
+}
+
 @media (min-width: 900px) and (max-height: 800px) {
   .workspace {
     padding-top: 88px;
@@ -453,9 +443,6 @@
   }
   .topbar h1 {
     font-size: 1.5rem;
-  }
-  .topbar p {
-    display: none;
   }
   .selector {
     padding: 12px;
@@ -470,9 +457,6 @@
     min-height: 36px;
     padding: 7px 8px;
   }
-  .keyboardHint {
-    display: none;
-  }
   .detailHeader {
     padding: 16px 18px;
   }
@@ -482,12 +466,11 @@
   .projectInfo {
     padding: 16px;
   }
-  .workspaceFooter {
-    font-size: 0.6875rem;
-  }
 }
 @media (min-width: 900px) and (max-width: 1199px) {
   .workspace {
+    height: auto;
+    min-height: 100dvh;
     padding-inline: 20px;
   }
   .panels {
@@ -498,41 +481,32 @@
     flex-wrap: wrap;
     gap: 10px;
   }
-  .detailHeader h2 {
-    font-size: 1.25rem;
-  }
-  .detailBody {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .gallery {
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-    height: 45%;
-    flex-shrink: 0;
-    padding: 12px;
-  }
   .detailBody {
     display: flex;
     flex-direction: column;
   }
-  .projectInfo {
-    flex: 1;
-  }
-  .galleryToolbar {
-    gap: 8px;
-  }
-  .galleryFooter {
-    min-height: 30px;
-  }
-  .galleryFooter button {
-    height: 30px;
-    width: 34px;
-  }
-  .galleryToolbar select {
-    min-height: 32px;
-  }
   .gallery {
-    gap: 7px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .imageStage {
+    flex: none;
+    height: 260px;
+  }
+  .detail {
+    height: auto;
+  }
+}
+@media (min-width: 1200px) and (max-height: 650px) {
+  .detail {
+    height: auto;
+  }
+  .workspace {
+    height: auto;
+    min-height: 100dvh;
+  }
+  .imageStage {
+    min-height: 220px;
   }
 }
 @media (max-width: 899px) {
@@ -546,12 +520,6 @@
   .topbar h1 {
     font-size: 1.6rem;
     gap: 10px;
-  }
-  .topbar p {
-    font-size: 0.875rem;
-  }
-  .contactLink {
-    display: none;
   }
   .mobileSelector {
     display: flex;
@@ -620,11 +588,6 @@
   }
   .screenshot {
     padding: 8px;
-  }
-  .workspaceFooter {
-    font-size: 0.75rem;
-    line-height: 1.4;
-    gap: 15px;
   }
   .actions a {
     min-height: 44px;

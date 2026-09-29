@@ -1,15 +1,16 @@
 'use client';
 
 import { useRef, useState, type KeyboardEvent } from 'react';
-import Link from 'next/link';
 import { projectCategoryOrder, projects } from '@/lib/projects';
 import PortfolioDetail from './PortfolioDetail';
 import styles from './PortfolioWorkspace.module.css';
 
-const groups = projectCategoryOrder.map((category) => ({
-  category,
-  projects: projects.filter((p) => p.category === category),
-}));
+const groups = projectCategoryOrder
+  .map((category) => ({
+    category,
+    projects: projects.filter((p) => p.category === category),
+  }))
+  .filter((group) => group.projects.length > 0);
 const orderedProjects = groups.flatMap((group) => group.projects);
 
 export default function PortfolioWorkspace() {
@@ -41,15 +42,7 @@ export default function PortfolioWorkspace() {
       aria-label="Project portfolio"
     >
       <div className={styles.topbar}>
-        <div>
-          <h1>
-            Selected work<span>{projects.length} projects</span>
-          </h1>
-          <p>Explore the builds. Get into the details.</p>
-        </div>
-        <Link href="/contact" className={styles.contactLink}>
-          Have a project in mind?
-        </Link>
+        <h1>Selected work</h1>
       </div>
       <div className={styles.mobileSelector}>
         <label htmlFor="portfolio-project">Choose a project</label>
@@ -121,9 +114,6 @@ export default function PortfolioWorkspace() {
               </div>
             ))}
           </div>
-          <p className={styles.keyboardHint}>
-            Arrow keys to browse · Tab to explore
-          </p>
         </aside>
         <div
           id="project-panel"
@@ -134,10 +124,6 @@ export default function PortfolioWorkspace() {
         >
           <PortfolioDetail key={currentProject.id} project={currentProject} />
         </div>
-      </div>
-      <div className={styles.workspaceFooter}>
-        <span>Shawn McMahon · Software Engineer</span>
-        <a href="mailto:shawnmcmahondev@gmail.com">Get in touch</a>
       </div>
     </section>
   );

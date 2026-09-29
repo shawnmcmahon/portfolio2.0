@@ -19,14 +19,14 @@ const technologies = [
   { src: '/Assets/icons/dot-net-plain-wordmark.svg', alt: '.NET', url: 'https://dotnet.microsoft.com' },
   { src: '/Assets/icons/microsoftsqlserver-plain-wordmark.svg', alt: 'MS SQL Server', url: 'https://www.microsoft.com/en-us/sql-server' },
   { src: '/Assets/icons/postgresql-original-wordmark.svg', alt: 'PostgreSQL', url: 'https://www.postgresql.org' },
-  { src: '/Assets/icons/supabase-original-wordmark.svg', alt: 'Supabase', url: 'https://supabase.com' },
+  { src: '/Assets/icons/supabase-symbol.svg', alt: 'Supabase', url: 'https://supabase.com' },
   { src: '/Assets/icons/firebase-original-wordmark.svg', alt: 'Firebase', url: 'https://firebase.google.com' },
   { src: '/Assets/icons/netlify-original-wordmark.svg', alt: 'Netlify', url: 'https://www.netlify.com' },
   { src: '/Assets/icons/cloudflare-original-wordmark.svg', alt: 'Cloudflare', url: 'https://www.cloudflare.com' },
   { src: '/Assets/icons/vercel-original-wordmark.svg', alt: 'Vercel', darkInvert: true, url: 'https://vercel.com' },
   { src: '/Assets/icons/heroku-original-wordmark.svg', alt: 'Heroku', url: 'https://www.heroku.com' },
   { src: '/Assets/icons/wix-original-wordmark.svg', alt: 'Wix', url: 'https://www.wix.com' },
-  { src: '/Assets/icons/cursor.svg', alt: 'Cursor IDE', url: 'https://cursor.sh' },
+  { src: '/Assets/icons/cursor.svg', alt: 'Cursor IDE', darkInvert: true, url: 'https://cursor.sh' },
   { src: '/Assets/icons/amazonwebservices-original-wordmark.svg', alt: 'AWS', darkInvert: true, url: 'https://aws.amazon.com' },
 ];
 
