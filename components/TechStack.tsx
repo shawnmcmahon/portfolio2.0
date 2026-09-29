@@ -27,7 +27,7 @@ const technologies = [
   { src: '/Assets/icons/heroku-original-wordmark.svg', alt: 'Heroku', url: 'https://www.heroku.com' },
   { src: '/Assets/icons/wix-original-wordmark.svg', alt: 'Wix', url: 'https://www.wix.com' },
   { src: '/Assets/icons/cursor.svg', alt: 'Cursor IDE', darkInvert: true, url: 'https://cursor.sh' },
-  { src: '/Assets/icons/amazonwebservices-original-wordmark.svg', alt: 'AWS', darkInvert: true, url: 'https://aws.amazon.com' },
+  { src: '/Assets/icons/amazonwebservices-original-wordmark.svg', alt: 'AWS', url: 'https://aws.amazon.com' },
 ];
 
 export default function TechStack() {
