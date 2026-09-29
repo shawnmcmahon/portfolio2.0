@@ -29,7 +29,6 @@ export interface Project {
   learningGoals: string[];
   pictures: string[];
   pictureGroups?: ProjectPictureGroup[];
-  imageFit?: 'cover' | 'contain';
   githubRepo: string;
   deployedSite: string;
 }
@@ -123,7 +122,6 @@ export const projects: Project[] = [
       'Connect a statically exported Next.js frontend to AWS services for shared data and transactional email.',
     ],
     pictures: ['/Assets/tollgate-crossing/landing.png'],
-    imageFit: 'contain',
     pictureGroups: [
       {
         label: 'Screenshots',

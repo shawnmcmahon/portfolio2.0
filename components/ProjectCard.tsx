@@ -174,7 +174,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               src={activePictures[pageIndex]}
               alt={`${project.title} — ${activeGroup.label} — ${pageLabels[pageIndex] ?? 'screenshot'}`}
               fill
-              className={`${project.imageFit === 'contain' ? 'object-contain' : 'object-cover object-top'} transition-opacity duration-300`}
+              className="object-cover object-top transition-opacity duration-300"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
@@ -247,7 +247,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                       src={pic}
                       alt={`${project.title} thumbnail ${index + 1}`}
                       fill
-                      className={project.imageFit === 'contain' ? 'object-contain' : 'object-cover'}
+                      className="object-cover"
                       sizes="96px"
                     />
                   </button>
