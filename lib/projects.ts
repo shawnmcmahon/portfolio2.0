@@ -31,9 +31,10 @@ export interface Project {
   pictureGroups?: ProjectPictureGroup[];
   githubRepo: string;
   deployedSite: string;
+  enabled?: boolean;
 }
 
-export const projects: Project[] = [
+const allProjects: Project[] = [
   {
     id: 1,
     category: 'Freelance Deliverables',
@@ -131,6 +132,44 @@ export const projects: Project[] = [
     ],
     githubRepo: '',
     deployedSite: 'https://tollgatecrossingmetro.org',
+  },
+  {
+    id: 16,
+    enabled: false, // Enable after public launch and set deployedSite below.
+    category: "Personal Projects",
+    title: "Pixel Perfect Programs",
+    shortTitle: "Pixel Perfect",
+    time: "Independent Build",
+    dateCompleted: "09/2026",
+    applicationType: "Fullstack",
+    collaborators: [],
+    technologiesUsed: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "AWS Lambda",
+      "API Gateway",
+      "DynamoDB",
+      "Amazon SES",
+    ],
+    description:
+      "Pixel Perfect Programs is my freelance web and software development business website. The responsive experience introduces services, showcases selected projects, and connects visitors directly with me through a project enquiry form. A statically exported Next.js frontend is paired with an isolated AWS contact service that validates submissions, applies rate limits, and sends enquiries through Amazon SES.",
+    learningGoals: [
+      "Translate a software development business into a clear service offering and focused project showcase.",
+      "Connect a static frontend to a validated, rate-limited contact API with a fixed email recipient.",
+      "Create a responsive visual identity that is distinct from my personal portfolio.",
+    ],
+    pictures: ["/Assets/pixel-perfect-programs/landing.png"],
+    pictureGroups: [
+      {
+        label: "Screenshots",
+        pictureLabels: ["Landing page"],
+        pictures: ["/Assets/pixel-perfect-programs/landing.png"],
+      },
+    ],
+    githubRepo: "",
+    deployedSite: "",
   },
   {
     id: 3,
@@ -433,3 +472,6 @@ export const projects: Project[] = [
     deployedSite: 'https://shawnmcmahon.github.io/self-care-center/',
   },
 ];
+
+// Hidden entries remain ready in code without appearing in either portfolio UI.
+export const projects = allProjects.filter(project => project.enabled !== false);
