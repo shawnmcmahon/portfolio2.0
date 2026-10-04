@@ -467,6 +467,18 @@
     padding: 16px;
   }
 }
+@media (min-width: 1200px) and (min-height: 651px) and (max-height: 750px) {
+  .projectList {
+    gap: 10px;
+  }
+  .projectButtons {
+    gap: 8px;
+  }
+  .projectButtons button {
+    min-height: 32px;
+    padding: 5px 8px;
+  }
+}
 @media (min-width: 900px) and (max-width: 1199px) {
   .workspace {
     height: auto;

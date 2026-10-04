@@ -105,6 +105,6 @@ This project is open source and available under the [MIT License](LICENSE).
 - LinkedIn: [shawnpmcmahon](https://www.linkedin.com/in/shawnpmcmahon/)
 - Email: shawnmcmahondev@gmail.com
 
-## Enabling Pixel Perfect Programs
+## Launched project entries
 
-The prepared entry in lib/projects.ts (id 16) is hidden with enabled: false. After the public site launches, set deployedSite to its final public HTTPS URL and change enabled to true. The desktop collection and mobile selector update automatically, revealing the dedicated My Business group. Empty groups remain hidden. Keep githubRepo empty unless the source becomes public.
+Pixel Perfect Programs (id 16) is enabled in `lib/projects.ts` after verification of its public HTTPS launch at `https://pxlperfectpro.com/`. It appears in the dedicated My Business group. Adonea Metro District (id 17) appears under Freelance Deliverables and links to its verified production CloudFront URL; its custom-domain and replacement booking activation remain separate. Both entries use current public-site screenshots. Keep `githubRepo` empty unless each project's source becomes public. The desktop collection and mobile selector update from the shared project data, and empty groups remain hidden.
